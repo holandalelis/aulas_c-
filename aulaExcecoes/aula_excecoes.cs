@@ -1,19 +1,25 @@
 using System;
 
+public class Area{
+    public static float quadrado(float bas, float alt){
+        if(bas<=0 || alt<=0){
+            throw new Exception("Base ou altura não podem ser iguais ou menores que 0");
+        }
+        return bas*alt;
+    }
+}
+
 public class Aula_excecoes{
     public static void Main(){
-        int n1,n2,res;
-        res=n1=n2=0;
-
-        n1=10;
-        n2=0;
-
+        float area=0;
         try
         {
-            res=n1/n2;
-            Console.WriteLine(res);
+            area = Area.quadrado(0f,5f);
+            Console.WriteLine("Area do quadrado {0}", area);
         }catch (Exception e){
-            Console.WriteLine("ERRO: {0}", e);
+            Console.WriteLine("ERRO: {0}", e.Message);
+        }finally{
+            Console.WriteLine("FIM DO PROCESSO");
         }
     }
 }
